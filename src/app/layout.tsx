@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={epilogue.className}>
+      <body className={epilogue.className + " relative min-h-screen"}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

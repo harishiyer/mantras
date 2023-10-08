@@ -14,7 +14,7 @@ const Mantra = async ({ params }: Props) => {
 
   return (
     <section className="mx-6">
-      <div className="absolute left-10 top-[26px]">
+      <div className="absolute top-[18px] lg:left-10 lg:top-[26px]">
         <Link href={"/"}>
           <SiteTitle className="text-2xl" />
         </Link>
