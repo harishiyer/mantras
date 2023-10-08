@@ -20,10 +20,12 @@ body {
   color: rgb(var(--foreground-rgb));
   @apply bg-[var[--bg-color]];
   @apply min-w-[320px];
-  padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
 p {
   margin-bottom: 0.5rem;
 }
- 
+
+.mobileNavigation {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
