@@ -1,24 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillHome, AiFillSetting } from "react-icons/ai";
 const MobileNavigation = () => {
   const [showInstallMessage, setinstallMessage] = useState(false);
 
-  // Detects if device is on iOS
-  const isIos = () => {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    return /iphone|ipad|ipod/.test(userAgent);
-  };
-  // Detects if device is in standalone mode
-  const isInStandaloneMode = () =>
-    "standalone" in window.navigator && window.navigator.standalone;
+  useEffect(() => {
+    // Detects if device is on iOS
+    const isIos = () => {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      return /iphone|ipad|ipod/.test(userAgent);
+    };
+    // Detects if device is in standalone mode
+    const isInStandaloneMode = () =>
+      "standalone" in window.navigator && window.navigator.standalone;
 
-  // Checks if should display install popup notification:
-  if (isIos() && !isInStandaloneMode()) {
-    setinstallMessage(true);
-  }
+    // Checks if should display install popup notification:
+    if (isIos() && !isInStandaloneMode()) {
+      setinstallMessage(true);
+    }
+  }, []);
 
   return (
     <nav className="mobileNavigation lg:hidden fixed z-50 bottom-4 dark:bg-slate-50 bg-slate-900 w-[96%] left-[2%] rounded-2xl">

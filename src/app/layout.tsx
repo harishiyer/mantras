@@ -7,11 +7,6 @@ import Footer from "./components/Footer";
 
 const epilogue = Epilogue({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Chant Mantra",
-  description: "An app to recite your mantras",
-};
-
 export const siteTitleText: string = "Chant Mantra";
 
 export default function RootLayout({
