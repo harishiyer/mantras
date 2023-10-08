@@ -26,6 +26,8 @@ p {
   margin-bottom: 0.5rem;
 }
 
-.mobileNavigation {
-  padding-bottom: env(safe-area-inset-bottom, 20px);
+@media all and (display-mode: minimal-ui) {
+  .mobileNavigation {
+    bottom: env(safe-area-inset-bottom, 20px);
+  }
 }
