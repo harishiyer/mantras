@@ -5,7 +5,7 @@ import SiteTitle from "../components/siteTitle";
 import { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-const login = () => {
+const userlogin = () => {
   const [loginLoading, setLoginLoading] = useState(true);
 
   useEffect(() => {
@@ -130,4 +130,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default userlogin;
