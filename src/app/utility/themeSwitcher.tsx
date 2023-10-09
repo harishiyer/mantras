@@ -17,10 +17,10 @@ export const ThemeSwitcher = () => {
 
   return (
     <button
-      className={`-mt-[2px] rounded-md duration-200`}
+      className={`lg:-mt-[2px] rounded-md duration-200`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
-    </button> 
+    </button>
   );
 };

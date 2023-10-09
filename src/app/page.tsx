@@ -8,9 +8,10 @@ export default async function Home() {
 
   return (
     <>
-      <div className="max-w-5xl mx-4 lg:mx-auto py-20">
+      <div className="max-w-5xl mx-4 lg:mx-auto pt-10 pb-20">
         <SiteTitle />
-        <div className="my-24">
+        <div className="mt-20">
+
           {mantras.map((mantra) => (
             <Link
               href={`/mantras/${mantra.slug}`}
