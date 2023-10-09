@@ -8,10 +8,8 @@ const SiteTitle = (props: props) => {
   return (
     <h1
       className={
-        (props.className
-          ? props.className
-          : "text-5xl lg:text-7xl") +
-        " text-center font-extrabold dark:text-white transition-all ease-linear"
+        (props.className ? props.className : "text-5xl lg:text-7xl") +
+        " text-center font-extrabold dark:text-white transition-all ease-linear timing"
       }
     >
       {siteTitleText.split(" ")[0] + " "}

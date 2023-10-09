@@ -3,6 +3,8 @@ const withPWA = require("next-pwa")({
   dest: "public",
 });
 
-const nextConfig = {};
+const nextConfig = {
+  darkMode: "class",
+};
 
 module.exports = withPWA(nextConfig);
