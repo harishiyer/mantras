@@ -8,7 +8,7 @@ import { FaUserCircle } from "react-icons/fa";
 const Header = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
-  const profileClick = (event) => {
+  const profileClick = (event: React.SyntheticEvent) => {
     event.preventDefault();
     setShowLoginModal((prevShowLoginModal) => {
       return !prevShowLoginModal;
