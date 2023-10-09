@@ -15,6 +15,12 @@ const Header = () => {
     });
   };
 
+  const loginClick = (event: React.SyntheticEvent) => {
+    setShowLoginModal((prevShowLoginModal) => {
+      return !prevShowLoginModal;
+    });
+  };
+
   return (
     <header className="flex gap-5 items-center content-center w-full py-6 px-4 text-slate-900 text-right dark:text-white">
       <div className="ml-auto flex items-center gap-4 lg:gap-6">
@@ -40,7 +46,8 @@ const Header = () => {
             <div className="h-0 absolute -top-[6px] right-[3px] w-0 border-x-[6px] border-x-transparent border-b-[8px] border-b-slate-900 dark:border-b-slate-100"></div>
             <Link
               className="block text-sm rounded-xl text-center py-2 px-2 mx-3 bg-slate-50 dark:bg-slate-900"
-              href={"#"}
+              href={"/login"}
+              onClick={loginClick}
             >
               Log In
             </Link>

@@ -39,7 +39,7 @@ export default function RootLayout({
           enableSystem={true}
         >
           <Header />
-          <main className="min-h-[85vh] lg:min-h-[80vh]">{children}</main>
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
