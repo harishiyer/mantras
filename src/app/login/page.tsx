@@ -5,15 +5,15 @@ import SiteTitle from "../components/siteTitle";
 import Image from "next/image";
 import LoginImage from "/public/image/ajeet-mestry-BtURpnC-J3U-unsplash.jpg";
 import LoginImageDark from "/public/image/raju-sharma-0gbnZU9KwBA-unsplash.jpg";
-import { useState } from "react";
 import signIn from "../firebase/auth/signIn";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 interface firebaseError {
   message: string;
 }
 
-const login = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -146,4 +146,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
