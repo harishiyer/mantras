@@ -47,7 +47,7 @@ export default function Home() {
               {user && (
                 <p
                   onClick={() => setEditMantraList((prevVal) => !prevVal)}
-                  className="hover:cursor-pointer ml-auto mr-1 text-xs lg:text-sm lg:px-6 font-medium dark:text-slate-50 text-slate-950 mb-0"
+                  className="hover:cursor-pointer ml-auto mr-1 text-xs lg:text-sm pr-1 font-medium dark:text-slate-50 text-slate-950 mb-0"
                 >
                   Edit
                 </p>

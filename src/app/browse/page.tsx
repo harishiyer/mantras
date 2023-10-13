@@ -1,7 +1,8 @@
 import Link from "next/link";
 import SiteTitle from "../components/siteTitle";
 import { getMantras } from "../../../sanity/sanity-utils";
-import { AiOutlineRight, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineRight } from "react-icons/ai";
+import FavoriteButton from "../components/FavoriteButton";
 
 const Browse = async () => {
   const mantras = await getMantras();
@@ -36,7 +37,7 @@ const Browse = async () => {
               </span>
             </Link>
             <div className="text-red text-2xl lg:text-3xl flex text-red-700 items-center justify-center">
-              <AiOutlineHeart />
+              <FavoriteButton />
             </div>
           </div>
         ))}
