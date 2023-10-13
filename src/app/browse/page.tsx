@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SiteTitle from "../components/siteTitle";
 import { getMantras } from "../../../sanity/sanity-utils";
-import { AiOutlineRight } from "react-icons/ai";
+import { AiOutlineRight, AiOutlineHeart } from "react-icons/ai";
 
 const Browse = async () => {
   const mantras = await getMantras();
@@ -25,16 +25,21 @@ const Browse = async () => {
         </div>
 
         {mantras.map((mantra) => (
-          <Link
-            href={`/mantras/${mantra.slug}`}
-            className="block leading-[1] relative text-lg md:text-2xl lg:text-4xl text-center border-2 dark:text-slate-700 text-slate-100 rounded mb-4 pt-5 pb-4 lg:pt-9 lg:pb-8 font-medium lg:font-bold bg-slate-900 dark:bg-slate-100"
-            key={mantra._id}
-          >
-            {mantra.name}
-            <span className="absolute right-3 top-[35%] lg:top-[46%] text-base">
-              <AiOutlineRight />
-            </span>
-          </Link>
+          <div className="flex mb-4 gap-5">
+            <Link
+              href={`/mantras/${mantra.slug}`}
+              className="block leading-[1] relative text-lg md:text-2xl lg:text-4xl flex-grow text-center border-2 dark:text-slate-700 text-slate-100 rounded pt-5 pb-4 lg:pt-9 lg:pb-8 font-medium lg:font-bold bg-slate-900 dark:bg-slate-100"
+              key={mantra._id}
+            >
+              {mantra.name}
+              <span className="absolute right-3 top-[35%] lg:top-[46%] text-base">
+                <AiOutlineRight />
+              </span>
+            </Link>
+            <div className="text-red text-2xl lg:text-3xl flex text-red-700 items-center justify-center">
+              <AiOutlineHeart />
+            </div>
+          </div>
         ))}
       </div>
     </div>

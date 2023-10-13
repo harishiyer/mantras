@@ -45,7 +45,7 @@ const MobileNavigation = () => {
         <div className="py-3 px-3 w-1/3 text-slate-50 dark:text-slate-900 text-xl">
           <Link
             className="flex flex-col items-center gap-1 select-none"
-            href={"/"}
+            href={"/settings"}
           >
             <AiFillSetting />
             <span className="text-xs">Settings</span>

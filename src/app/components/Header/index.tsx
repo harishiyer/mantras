@@ -52,6 +52,12 @@ const Header = () => {
         >
           Browse
         </Link>
+        <Link
+          href={"/settings"}
+          className="text-sm leading-[1] hidden lg:inline-block"
+        >
+          Settings
+        </Link>
         <ThemeSwitcher />
         <div className="text-lg relative">
           <Link onClick={profileClick} href={"#"}>
