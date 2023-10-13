@@ -25,11 +25,10 @@ const Browse = async () => {
         </div>
 
         {mantras.map((mantra) => (
-          <div className="flex mb-4 gap-5">
+          <div className="flex mb-4 gap-5" key={mantra._id}>
             <Link
               href={`/mantras/${mantra.slug}`}
               className="block leading-[1] relative text-lg md:text-2xl lg:text-4xl flex-grow text-center border-2 dark:text-slate-700 text-slate-100 rounded pt-5 pb-4 lg:pt-9 lg:pb-8 font-medium lg:font-bold bg-slate-900 dark:bg-slate-100"
-              key={mantra._id}
             >
               {mantra.name}
               <span className="absolute right-3 top-[35%] lg:top-[46%] text-base">
