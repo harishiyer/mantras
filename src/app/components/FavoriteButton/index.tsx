@@ -55,7 +55,7 @@ const FavoriteButton = (props: props) => {
   };
 
   useEffect(() => {
-    props.favorites.map((favoriteMantra) => {
+    props.favorites?.map((favoriteMantra) => {
       if (props._id == favoriteMantra) {
         setFavorite(true);
       }

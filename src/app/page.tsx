@@ -36,6 +36,7 @@ export default function Home() {
             // fetch default featured mantras
             const mantras = await getMantras();
             setMantras(mantras);
+            return;
           }
 
           // fetch the user mantras
