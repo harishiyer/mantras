@@ -6,7 +6,7 @@ import SiteTitle from "./components/siteTitle";
 import { AiOutlineClose, AiOutlineHeart, AiOutlineRight } from "react-icons/ai";
 import { BsPlusSquareFill } from "react-icons/bs";
 import { useAuthContext } from "./context/authContext";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Mantra } from "../../types/Mantra";
 import {
   arrayRemove,
@@ -100,8 +100,8 @@ export default function Home() {
               )}
             </div>
           )}
-          {mantras &&
-            mantras?.map((mantra) => (
+          <Suspense>
+            {mantras?.map((mantra) => (
               <div
                 className="flex transition-all ease-linear mb-4 gap-5"
                 key={mantra._id}
@@ -125,6 +125,8 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </Suspense>
+
           <Link
             href={user ? "/browse" : "/login"}
             className="text-sm mb-5 mt-10 flex flex-col items-center dark:text-slate-50 gap-3"
