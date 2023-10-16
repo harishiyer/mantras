@@ -25,15 +25,20 @@ export async function getMantra(slug: string): Promise<Mantra> {
                 "slug": slug.current,
                 "image": image.asset->url,
                 url,
-                content
+                content,
+                "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
+                  title,
+                  slug,
+                  language
+                },
             }`,
     { slug }
   );
 }
 
-export async function getUserMantra(slug: string): Promise<Mantra> {
+export async function getUserMantra(ids: Array<string>): Promise<Mantra[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "mantras" && slug._id == $slug][0]{
+    groq`*[_type == "mantras" && _id in $string_ids]{
                 _id,
                 _creaatedAt,
                 name,
@@ -42,6 +47,8 @@ export async function getUserMantra(slug: string): Promise<Mantra> {
                 url,
                 content
             }`,
-    { slug }
+    {
+      string_ids: ids,
+    }
   );
 }

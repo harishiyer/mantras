@@ -1,11 +1,41 @@
+"use client";
+
 import Link from "next/link";
 import SiteTitle from "../components/siteTitle";
 import { getMantras } from "../../../sanity/sanity-utils";
 import { AiOutlineRight } from "react-icons/ai";
 import FavoriteButton from "../components/FavoriteButton";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
+import { useAuthContext } from "../context/authContext";
+import { useEffect, useState } from "react";
+import { Mantra } from "../../../types/Mantra";
 
-const Browse = async () => {
-  const mantras = await getMantras();
+const Browse = () => {
+  const { user }: any = useAuthContext();
+
+  const [userFavorites, setUserFavorites] = useState([]);
+  const [mantras, setMantras] = useState<Mantra[] | null>(null);
+
+  useEffect(() => {
+    // get all mantras from sanity
+    const getAllMantras = async () => {
+      const all_mantras = await getMantras();
+      setMantras(all_mantras);
+    };
+    getAllMantras();
+
+    // get user mantras
+    const fetchUserMantras = async () => {
+      const mantra_data = await getDoc(doc(db, "users", user.uid));
+
+      if (mantra_data.exists()) {
+        setUserFavorites(mantra_data.data().mantra_ids);
+      }
+    };
+
+    user && fetchUserMantras();
+  }, []);
 
   return (
     <div className="max-w-5xl mx-4 lg:mx-auto py-20">
@@ -25,7 +55,7 @@ const Browse = async () => {
           />
         </div>
 
-        {mantras.map((mantra) => (
+        {mantras?.map((mantra) => (
           <div className="flex mb-4 gap-5" key={mantra._id}>
             <Link
               href={`/mantras/${mantra.slug}`}
@@ -37,7 +67,7 @@ const Browse = async () => {
               </span>
             </Link>
             <div className="text-red text-2xl lg:text-3xl flex text-red-700 items-center justify-center">
-              <FavoriteButton />
+              <FavoriteButton favorites={userFavorites} _id={mantra._id} />
             </div>
           </div>
         ))}

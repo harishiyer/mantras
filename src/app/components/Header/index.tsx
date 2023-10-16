@@ -2,7 +2,8 @@
 
 import { useAuthContext } from "@/app/context/authContext";
 import logout from "@/app/firebase/auth/logout";
-import { ThemeSwitcher } from "@/app/utility/themeSwitcher";
+import LanguageSwitcher from "@/app/utility/LanguageSwitcher";
+import { ThemeSwitcher } from "@/app/utility/ThemeSwitcher";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -11,7 +12,7 @@ import { FaUserCircle } from "react-icons/fa";
 const Header = () => {
   const { user }: any = useAuthContext();
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const profileClick = (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -37,7 +38,7 @@ const Header = () => {
       return !prevShowLoginModal;
     });
     logout();
-    router.push("/")
+    router.push("/");
   };
 
   return (
@@ -59,13 +60,14 @@ const Header = () => {
           Settings
         </Link>
         <ThemeSwitcher />
+        <LanguageSwitcher />
         <div className="text-lg relative">
           <Link onClick={profileClick} href={"#"}>
             <FaUserCircle />
           </Link>
           <div
             className={`${
-              showLoginModal ? "opacity-100" : "opacity-0"
+              showLoginModal ? "visible" : "invisible"
             } absolute rounded-sm py-5 px-2 w-48 bg-slate-900 dark:bg-slate-100 right-0 top-7 transition-all ease-linear duration-75`}
           >
             <div className="h-0 absolute -top-[6px] right-[3px] w-0 border-x-[6px] border-x-transparent border-b-[8px] border-b-slate-900 dark:border-b-slate-100"></div>

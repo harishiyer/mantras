@@ -5,6 +5,10 @@ const withPWA = require("next-pwa")({
 
 const nextConfig = {
   darkMode: "class",
+  i18n: {
+    locales: ['en-US', 'sa'],
+    defaultLocale: 'en-US',
+  },
 };
 
 module.exports = withPWA(nextConfig);

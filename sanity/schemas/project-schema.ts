@@ -9,6 +9,12 @@ const Mantras = {
       type: "string",
     },
     {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
