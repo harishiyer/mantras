@@ -32,7 +32,7 @@ export default function Home() {
 
         if (mantra_data.exists()) {
           const mantraIds: Array<string> = mantra_data.data().mantra_ids;
-          if (mantraIds.length == 0) {
+          if (mantraIds?.length == 0 || !mantraIds) {
             // fetch default featured mantras
             const mantras = await getMantras();
             setMantras(mantras);
