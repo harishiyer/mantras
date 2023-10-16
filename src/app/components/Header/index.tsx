@@ -60,7 +60,6 @@ const Header = () => {
           Settings
         </Link>
         <ThemeSwitcher />
-        <LanguageSwitcher />
         <div className="text-lg relative">
           <Link onClick={profileClick} href={"#"}>
             <FaUserCircle />
